@@ -335,9 +335,7 @@ h2 {
    11. CONTACTFORMULIER
    ============================================================ */
 
-.contact-card {
-  /* Inherits .card styles */
-}
+
 
 .contact-form {
   margin-top: var(--space-md);
