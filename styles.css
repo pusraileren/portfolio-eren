@@ -1,95 +1,568 @@
-:root{
-  --bg:#070707;
-  --accent:#00b894;
-  --accent-2:#00c9a7;
-  --muted:#bdbdbd;
-  --card-bg:#0f0f10;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--accent-2);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-.container{max-width:1000px;margin:0 auto;padding:0 1rem}
-.hero{padding:3.2rem 0;text-align:center}
-.hero-title{margin:.1rem 0;font-size:2rem}
-.hero-sub{color:var(--muted);margin:0}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:10px;margin:1rem 0}
-h2{margin-top:0}
-
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
-.project-card{background:transparent;padding:.6rem;border:1px solid rgba(0,200,83,0.12);border-radius:6px;cursor:pointer}
-.project-card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
-.project-card h3{margin:.5rem 0 0;color:var(--accent-2)}
-.project-card p{margin:.25rem 0;color:var(--muted)}
-
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
-.proj{display:block;background:var(--card-bg);border:1px solid rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;color:var(--accent-2);text-decoration:none}
-.proj-thumb{height:140px;background-size:cover;background-position:center}
-.proj h3{margin:.6rem .8rem 0;color:var(--accent-2)}
-.proj p{margin:.4rem .8rem 1rem;color:var(--muted);font-size:.95rem}
-
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1rem;visibility:hidden;opacity:0;transition:opacity .18s}
-.modal[aria-hidden="false"]{visibility:visible;opacity:1}
-.modal-content{background:var(--card-bg);border:1px solid rgba(0,0,0,0.2);padding:1rem;border-radius:8px;max-width:720px;width:100%;color:var(--accent-2);position:relative}
-.close{position:absolute;right:0.6rem;top:0.6rem;background:transparent;border:0;color:var(--accent-2);font-size:1.1rem}
-.modal-actions{display:flex;gap:.5rem;margin-top:1rem}
-.btn{background:var(--accent);color:#021;display:inline-block;padding:.5rem .8rem;border-radius:8px;text-decoration:none;border:0}
-.btn.secondary{background:transparent;border:1px solid rgba(0,200,83,0.08);color:var(--accent-2)}
-
-label{display:block;margin-top:.6rem;color:var(--muted)}
-input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(0,200,83,0.06);background:transparent;color:var(--accent-2)}
-input:focus,textarea:focus,button:focus{outline:3px solid rgba(0,200,83,0.08);outline-offset:2px}
-
-.site-footer{padding:1.2rem 0;color:var(--muted);border-top:1px solid rgba(0,200,83,0.06);margin-top:2rem;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
-
-.navbar{background:linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(0,200,83,0.04)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
-.logo{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#021;font-weight:800;text-decoration:none;font-size:1.1rem}
-.nav-links{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
-.nav-links a{color:var(--accent-2);text-decoration:none;padding:.5rem;border-radius:6px}
-.nav-links a:hover{background:rgba(0,200,83,0.04)}
-.nav-toggle{display:none;background:transparent;border:0;color:var(--green);font-size:1.2rem}
-
-.footer-inner{display:flex;align-items:center;gap:1rem;justify-content:center}
-.footer-brand{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#021;display:flex;align-items:center;justify-content:center;font-weight:800}
-
-.contact-list{list-style:none;padding:0;margin:0}
-.contact-list li{margin:.4rem 0;color:var(--muted)}
-
-.split{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
-.about-left p{color:var(--muted);line-height:1.5}
-.about-right h3{margin-top:0;color:var(--accent-2)}
-
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-.skill{display:flex;flex-direction:column;gap:.4rem}
-.skill span{color:var(--muted)}
-.bar{background:rgba(255,255,255,0.03);height:10px;border-radius:6px;overflow:hidden}
-.level{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:20%}
-.lvl-2{width:40%}
-.lvl-3{width:60%}
-.lvl-4{width:80%}
-.lvl-5{width:95%}
-
-.contact-form{margin-top:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:1rem;border-radius:8px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-.form-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:.6rem}
-.contact-form label{color:var(--muted);font-size:.95rem}
-.contact-form input, .contact-form textarea{background:transparent;border:1px solid rgba(255,255,255,0.03)}
+﻿/* ============================================================
+   EREN — PORTFOLIO STYLESHEET
+   Eren
+    2.0
+   Stijlblad voor persoonlijk portfolio
+   ============================================================ */
 
 
-@media (max-width:800px){
-  .nav-links{display:none}
-  .nav-toggle{display:inline-block}
-}
-@media (max-width:480px){
-  .hero{padding:2rem 0}
-  .hero-title{font-size:1.2rem}
-  .project-card img{height:110px}
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES 
+   ============================================================ */
+
+:root {
+  /* Kleuren */
+  --color-bg:       #070707;
+  --color-card:     #0f0f10;
+  --color-accent:   #00b894;
+  --color-accent-2: #00c9a7;
+  --color-muted:    #bdbdbd;
+  --color-text-on-accent: #021;
+
+  /* Borders */
+  --border-accent:  rgba(0, 200, 83, 0.08);
+  --border-subtle:  rgba(255, 255, 255, 0.03);
+
+  /* Achtergrond overlays */
+  --overlay-light:  rgba(255, 255, 255, 0.02);
+  --overlay-dark:   rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+
+  /* Typografie */
+  --font-base: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm:   0.95rem;
+  --line-height:    1.5;
+
+  /* Afstanden */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3.2rem;
+
+  /* Afronding */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-circle: 50%;
+
+  /* Layout */
+  --max-width: 1000px;
+  --avatar-size: 48px;
 }
 
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  background: var(--color-bg);
+  color: var(--color-accent-2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+
+/* ============================================================
+   3. LAYOUT 
+   ============================================================ */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+
+/* ============================================================
+   4. NAVIGATIE
+   ============================================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(90deg, var(--overlay-dark), rgba(0, 0, 0, 0.3));
+  border-bottom: 1px solid rgba(0, 200, 83, 0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--radius-circle);
+  background: var(--gradient-accent);
+  color: var(--color-text-on-accent);
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--color-accent-2);
+  text-decoration: none;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.nav-links a:hover {
+  background: rgba(0, 200, 83, 0.04);
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--color-accent-2);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+
+.hero {
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0.1rem 0;
+  font-size: 2rem;
+}
+
+.hero-sub {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+
+/* ============================================================
+   6. KAARTEN
+   ============================================================ */
+
+.card {
+  background: linear-gradient(
+    180deg,
+    var(--overlay-light),
+    rgba(255, 255, 255, 0.01)
+  );
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  margin: var(--space-md) 0;
+}
+
+
+/* ============================================================
+   7. OVER MIJ — SPLIT LAYOUT
+   ============================================================ */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.about-left p {
+  color: var(--color-muted);
+  line-height: var(--line-height);
+}
+
+.about-right h3 {
+  margin-top: 0;
+  color: var(--color-accent-2);
+}
+
+
+/* ============================================================
+   8. PORTFOLIO GRID
+   ============================================================ */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+/* Project artikel wrapper */
+.proj {
+  display: block;
+  background: var(--color-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--color-accent-2);
+  text-decoration: none;
+}
+
+.proj-thumb {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+
+/*  */
+.proj-thumb--1 {
+  background-image: url("https://via.placeholder.com/800x450/000000/00c9a7?text=Project+1");
+}
+
+.proj-thumb--2 {
+  background-image: url("https://via.placeholder.com/800x450/000000/00c9a7?text=Project+2");
+}
+
+.proj-thumb--3 {
+  background-image: url("https://via.placeholder.com/800x450/000000/00c9a7?text=Project+3");
+}
+
+.proj h3 {
+  margin: 0.6rem 0.8rem 0;
+  color: var(--color-accent-2);
+}
+
+.proj p {
+  margin: var(--space-xs) 0.8rem var(--space-md);
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ============================================================
+   9. SKILLS
+   ============================================================ */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.skill span {
+  color: var(--color-muted);
+}
+
+/* Vaardigheidsbalken */
+.bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.level {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+}
+
+.lvl-2 { width: 40%; }
+.lvl-3 { width: 60%; }
+.lvl-4 { width: 80%; }
+.lvl-5 { width: 95%; }
+
+
+/* ============================================================
+   10. CONTACTLIJST
+   ============================================================ */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin: 0.4rem 0;
+  color: var(--color-muted);
+}
+
+.contact-list a {
+  color: var(--color-accent-2);
+}
+
+
+/* ============================================================
+   11. CONTACTFORMULIER
+   ============================================================ */
+
+.contact-card {
+  /* Inherits .card styles */
+}
+
+.contact-form {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0)
+  );
+  border-radius: var(--radius-md);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+}
+
+.contact-form label {
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Invoervelden */
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 200, 83, 0.06);
+  background: transparent;
+  color: var(--color-accent-2);
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Focusstijlen voor toegankelijkheid */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid rgba(0, 200, 83, 0.08);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   12. KNOPPEN
+   ============================================================ */
+
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) 0.8rem;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: 0;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  color: var(--color-accent-2);
+}
+
+
+/* ============================================================
+   13. MODAL
+   ============================================================ */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+
+.modal[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding: var(--space-md);
+  background: var(--color-card);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--color-accent-2);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: transparent;
+  border: 0;
+  color: var(--color-accent-2);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   14. FOOTER
+   ============================================================ */
+
+.site-footer {
+  padding: 1.2rem 0;
+  margin-top: var(--space-xl);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
+  border-top: 1px solid rgba(0, 200, 83, 0.06);
+  color: var(--color-muted);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--radius-circle);
+  background: var(--gradient-accent);
+  color: var(--color-text-on-accent);
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — TABLET 
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ============================================================
+   16. RESPONSIVE — MOBIEL 
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding: var(--space-xl) 0;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .proj-thumb {
+    height: 110px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
